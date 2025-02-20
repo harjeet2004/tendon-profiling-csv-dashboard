@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Concrete Beam Designer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Background Canvas for 3D Construction Animation -->
+    <canvas id="bgCanvas"></canvas>
+
+    <!-- Main Content Card -->
+    <div class="floating-card">
+        <h2>🏗️ AI Concrete Beam Designer</h2>
+        <p>Upload your CSV file to predict beam performance with our advanced AI model</p>
+
+        <!-- File Upload Form -->
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" id="file-input" name="file" accept=".csv" required style="display: none;">
+            <div class="drop-zone">
+                <p>Drag and Drop your CSV file here</p>
+                <p>or click to browse</p>
+            </div>
+            
+            <button type="submit" class="btn-gradient">
+                Generate Predictions
+            </button>
+        </form>
+
+        <p class="text-info">Accepted format: <strong>.csv</strong></p>
+        <a href="{{ url_for('static', filename='input.xlsx') }}" class="download-link">Download Sample Input File</a>
+    </div>
+
+    <!-- Three.js Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
